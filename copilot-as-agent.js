@@ -49,7 +49,7 @@ const get_agent_view = () => {
         { skill_type: "Generate View" },
         { skill_type: "Registry editor" },
         { skill_type: "Javascript Action" },
-        { skill_type: "Any Action" },
+        { skill_type: "Generate trigger" },
         ...(typeof Plugin.loadAndSaveNewPlugin === "function"
           ? [{ skill_type: "Install Plugin" }]
           : []),

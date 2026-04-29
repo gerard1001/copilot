@@ -2,9 +2,9 @@ const Trigger = require("@saltcorn/data/models/trigger");
 const Table = require("@saltcorn/data/models/table");
 const { a, div, pre } = require("@saltcorn/markup/tags");
 
-class GenerateAnyAction {
-  static title = "Generate Any Action";
-  static function_name = "generate_action";
+class GenerateTrigger {
+  static title = "Generate Trigger";
+  static function_name = "generate_trigger";
   static description =
     "Generate a Saltcorn trigger with any available action type";
 
@@ -49,13 +49,13 @@ class GenerateAnyAction {
     });
     return {
       postExec:
-        "Action created. " +
+        "Trigger created. " +
         a(
           { target: "_blank", href: `/actions/configure/${trigger.id}` },
-          "Configure action.",
+          "Configure trigger.",
         ),
     };
   }
 }
 
-module.exports = GenerateAnyAction;
+module.exports = GenerateTrigger;

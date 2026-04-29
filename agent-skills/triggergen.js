@@ -3,7 +3,7 @@ const Table = require("@saltcorn/data/models/table");
 const { getState } = require("@saltcorn/data/db/state");
 const { getActionConfigFields } = require("@saltcorn/data/plugin-helper");
 const { fieldProperties } = require("../common");
-const GenerateAnyAction = require("../actions/generate-any-action");
+const GenerateAnyAction = require("../actions/generate-trigger");
 
 const flattenOptionGroups = (options = []) =>
   options.flatMap((opt) =>
@@ -11,10 +11,10 @@ const flattenOptionGroups = (options = []) =>
   );
 
 class AnyActionSkill {
-  static skill_name = "Any Action";
+  static skill_name = "Generate trigger";
 
   get skill_label() {
-    return "Any Action";
+    return "Generate trigger";
   }
 
   constructor(cfg) {
@@ -23,7 +23,7 @@ class AnyActionSkill {
 
   async systemPrompt() {
     return (
-      `If the user asks to create an action or trigger, use the generate_action tool. ` +
+      `If the user asks to create an action or trigger, use the generate_trigger tool. ` +
       `Pick the most appropriate action_type from the available options. ` +
       `Only set when_trigger and trigger_table if the user has specified them.`
     );
